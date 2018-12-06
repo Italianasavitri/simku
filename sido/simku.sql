@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2018 at 09:11 AM
+-- Generation Time: Dec 06, 2018 at 07:36 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -49,13 +49,21 @@ CREATE TABLE `admin` (
 CREATE TABLE `admins` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nip` int(255) NOT NULL,
-  `phone` int(255) NOT NULL,
+  `nip` bigint(255) NOT NULL,
+  `phone` bigint(255) NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `name`, `nip`, `phone`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(2, 'Admin Sidokom', 123456789, 85731014952, 'syafirarahman01@gmail.com', '$2y$10$WfzD.832fBSnv0sgBdsEwes.XyyqMyeRxCut4aiqggwG9oc1AQcMW', '5JKqzItzN73AmSLe2E1TaXwUptbTZDdHUVi2W3xTIZsYioXXIcguMFiG6CaM', '2018-12-05 18:00:34', '2018-12-05 23:23:13');
 
 -- --------------------------------------------------------
 
@@ -153,6 +161,13 @@ CREATE TABLE `password_resets` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('syafirarahman01@gmail.com', '$2y$10$u9liGTw.Jgj4uEMXn5.7ze97qu3wJKEy4jwsM2gzupehjpSvo1FHa', '2018-12-05 23:24:33');
+
 -- --------------------------------------------------------
 
 --
@@ -203,8 +218,8 @@ CREATE TABLE `user` (
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nip` int(255) NOT NULL,
-  `phone` int(255) NOT NULL,
+  `nip` bigint(255) NOT NULL,
+  `phone` bigint(255) NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -218,7 +233,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `nip`, `phone`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'syafira', 123567, 9876543, 'syafirarahman01@gmail.com', NULL, '$2y$10$bPBWMwLvC9QqQRoPi5S2Zu/ykzDiwFPzF3U8kjsVSf8NccM2o3V4e', 'yPsNEBr3y99luawnHDOFWgmf42tUbR83q58GQHHv1EjK1B9mhdOmCPG3HC3V', '2018-12-05 01:09:19', '2018-12-05 01:09:19');
+(1, 'syafira', 123567, 9876543, 'syafirarahman01@gmail.com', NULL, '$2y$10$GljxyLZvW2GNK1xUZ1Fksei3YG/njkehN4z86HME42dvz1StqODXC', '4K8qkszzqwXhaRTi4Uoib3veX9WJUG22DDau4IddSME4NAKRF2i3B8ECvSEj', '2018-12-05 01:09:19', '2018-12-05 21:44:21'),
+(3, 'Italiana Savitri', 134590, 85731014552, 'italiana.savitri@gmail.com', NULL, '$2y$10$cgQzrX4npvfbeQ6IxW8Tt.NMhtBEAch..heHulJHuM7lGx6hL74ae', 'sO98aVnkp5ee9T88QhxW57qC0jLUxaHAP7J3gnpLGLJnVKYkij95fVLkWQOH', '2018-12-05 23:18:23', '2018-12-05 23:28:11');
 
 -- --------------------------------------------------------
 
@@ -342,7 +358,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `adminslama`
@@ -396,7 +412,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `userslama`
