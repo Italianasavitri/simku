@@ -33,4 +33,14 @@ class Admin extends Authenticatable
     {
         $this->notify(new AdminResetPasswordNotification($token));
     }
+    //tabel tujuan
+    public function folder(){
+        return $this->hasMany('Folder','admin_id');
+    }
+    public function file(){
+        return $this->hasMany('File','admin_id');
+    }
+    public function activitie(){
+        return $this->hasMany('Activitie','admin_id');
+    }
 }
