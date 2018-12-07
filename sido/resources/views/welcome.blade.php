@@ -85,7 +85,7 @@
                     <h3>Sistem Dokumentasi KOMSI</h3>
                 </div>
                 <div>
-                    Univeristas Gadjah Mada
+                    Univeristas Gadjah Mada (UGM)
                 </div>
 
                 <!-- <div class="links">
