@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () { // home
-    return view('welcome');
+    return view('auth.Alogin');
 });
 
 
