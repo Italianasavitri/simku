@@ -74,12 +74,12 @@
             <i class="fa fa-folder"></i> <span>Penyimpanan</span>
           </a>
         </li>
-        <li class="{{ Request:: is('/log') ? 'active' : null }}>
+        <li class="{{ Request:: is('/log') ? 'active' : null }}">
             <a href="{{ url('/log') }}">
               <i class="fa fa-history"></i> <span>Log</span>
             </a>
           </li>
-          <li class="{{ Request:: is('/ubahPassword') ? 'active' : null }}>
+          <li class="{{ Request:: is('/ubahPassword') ? 'active' : null }}">
             <a href="{{ url('/ubahPassword') }}">
               <i class="fa fa-lock"></i> <span>Ubah Password</span>
             </a>
