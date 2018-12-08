@@ -18,6 +18,7 @@ Route::get('/', function () { // home
 
 Auth::routes();
 
+//route untuk user
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/log', 'HomeController@log')->name('userLog');
 Route::get('/ubahPassword', 'HomeController@ubahPassword')->name('userUbahPassword');

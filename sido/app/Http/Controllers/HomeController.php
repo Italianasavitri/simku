@@ -23,16 +23,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('user.userlanding');
     }
 
     public function log()
     {
-        return view('userLog');
+        return view('user.userLog');
     }
 
     public function ubahPassword()
     {
-        return view('userUbahPassword');
+        return view('user.userUbahPassword');
     }
 }

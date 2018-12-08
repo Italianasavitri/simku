@@ -13,22 +13,22 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="{{ url ('AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url ('asset/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ url ('AdminLTE/bower_components/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url ('asset/bower_components/font-awesome/css/font-awesome.min.css') }}">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="{{ url ('AdminLTE/bower_components/Ionicons/css/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ url ('asset/bower_components/Ionicons/css/ionicons.min.css') }}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ url ('AdminLTE/dist/css/AdminLTE.min.css') }}">
+    <link rel="stylesheet" href="{{ url ('asset/dist/css/AdminLTE.min.css') }}">
     <!-- bootstrap wysihtml5 - text editor -->
-    <link rel="stylesheet" href="{{ url ('AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
+    <link rel="stylesheet" href="{{ url ('asset/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
     <!-- Style -->
-    <link rel="stylesheet" href="{{ url ('AdminLTE/dist/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url ('asset/dist/css/style.css') }}">
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-blue logon login-page layout-top-nav">
-    <div class="wrapper" id="app">
+<body class="hold-transition skin-blue login-page layout-top-nav">
+    
         <header class="main-header">
         <nav class="navbar navbar-static-top logon">
             <svg width="200" height="36" viewBox="0 0 249 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +40,7 @@
 
         @yield('content')
         
-    </div>
+    
 
     
 

@@ -23,21 +23,21 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        return view('admin.admin');
     }
 
     public function log()
     {
-        return view('adminLog');
+        return view('admin.adminLog');
     }
 
     public function member()
     {
-        return view('adminMember');
+        return view('admin.adminMember');
     }
 
     public function ubahPassword()
     {
-        return view('adminUbahPassword');
+        return view('admin.adminUbahPassword');
     }
 }
