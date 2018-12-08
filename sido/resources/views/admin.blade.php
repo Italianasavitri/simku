@@ -1,11 +1,11 @@
-@extends('layouts.master')
+@extends('layouts.master-admin')
 
 @section('content-header')
 <section class="content-header">
     <h3>Kegiatan</h3>
 
     <ol class="breadcrumb">
-        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/"><i class="fa fa-dashboard"></i> Admin</a></li>
         <li class="active">Kegiatan</li>
     </ol>
 </section>

@@ -25,4 +25,19 @@ class AdminController extends Controller
     {
         return view('admin');
     }
+
+    public function log()
+    {
+        return view('adminLog');
+    }
+
+    public function member()
+    {
+        return view('adminMember');
+    }
+
+    public function ubahPassword()
+    {
+        return view('adminUbahPassword');
+    }
 }

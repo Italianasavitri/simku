@@ -67,22 +67,22 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="active">
-          <a href="{{url ('Admin')}}">
+          <a href="{{ url('/admin') }}">
             <i class="fa fa-folder"></i> <span>Penyimpanan</span>
           </a>
         </li>
         <li>
-          <a href="{{ url('Amember') }}">
+          <a href="{{ url('/admin/pengguna') }}">
             <i class="fa fa-users"></i> <span>Pengguna</span>
           </a>
         </li>
         <li>
-            <a href="{{ url('Alog') }}">
+            <a href="{{ url('/admin/log') }}">
               <i class="fa fa-history"></i> <span>Log</span>
             </a>
           </li>
           <li>
-            <a href="{{ url('AeditPass') }}">
+            <a href="{{ url('/admin/ubahPassword') }}">
               <i class="fa fa-lock"></i> <span>Ubah Password</span>
             </a>
           </li>

@@ -19,6 +19,8 @@ Route::get('/', function () { // home
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/log', 'HomeController@log')->name('userLog');
+Route::get('/ubahPassword', 'HomeController@ubahPassword')->name('userUbahPassword');
 Route::post('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
 Route::prefix('admin')->group(function() {
@@ -26,6 +28,9 @@ Route::prefix('admin')->group(function() {
 	Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 	Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 	Route::get('/', 'AdminController@index')->name('admin.dashboard');
+    Route::get('/log', 'AdminController@log')->name('adminLog');
+    Route::get('/pengguna', 'AdminController@member')->name('adminMember');
+    Route::get('/ubahPassword', 'AdminController@ubahPassword')->name('adminUbahPassword');
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 
     // Password reset routes
