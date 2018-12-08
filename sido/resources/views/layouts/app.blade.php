@@ -7,6 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" href="{{asset('asset/dist/img/ugm.png')}}" />
 
     <title>{{ config('app.name', 'SIDOKOM') }}</title>
 
