@@ -57,14 +57,3 @@
     </div>
 </section>
 @endsection
-
-@section('logout')
-    <a href="{{ route('admin.logout') }}"
-    onclick="event.preventDefault();
-    document.getElementById('logout-form').submit();"><i class="fa fa-arrow-left"></i>
-    Logout
-    </a>
-    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
-    {{ csrf_field() }}
-    </form>
-@endsection
