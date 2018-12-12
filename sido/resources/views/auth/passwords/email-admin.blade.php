@@ -2,10 +2,12 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">ADMIN Reset Password</div>
+        <div class="login-box logon">
+            <!-- /.login-logo -->
+            <div class="login-box-body logon">
+                <p class="login-box-msg">
+                    <img src="{{asset('asset/dist/img/resetPass.png')}}" alt="">
+                </p>
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -21,7 +23,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                            <input id="email" type="email" class="form-control logon" name="email" value="{{ old('email') }}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -33,15 +35,12 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
+                                <button type="submit" class="btn btn-primary btn-block btn-flat logon">
+                                    Sent Link
                                 </button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 @endsection

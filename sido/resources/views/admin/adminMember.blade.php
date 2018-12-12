@@ -207,3 +207,6 @@
           <!-- /.modal-dialog -->
         </div>
 @endsection
+@section('Astatus2')
+    active
+@endsection

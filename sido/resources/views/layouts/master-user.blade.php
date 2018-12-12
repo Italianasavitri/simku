@@ -38,47 +38,47 @@
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
+  <div class="wrapper">
 
-  <header class="main-header">
-    <!-- Logo -->
-    <a href="index2.html" class="logo greener">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>K</b></span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>KOMSI</b></span>
-    </a>
+    <header class="main-header">
+      <!-- Logo -->
+      <a href="index2.html" class="logo greener">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>K</b></span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>KOMSI</b></span>
+      </a>
 
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top greener">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+      <!-- Header Navbar: style can be found in header.less -->
+      <nav class="navbar navbar-static-top greener">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- Account -->
-          <li>
-            <a>
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <!-- Account -->
+            <li>
+              <a>
               <i class="fa fa-user"></i> {{ Auth::user()->name }}
             </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
 
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="@yield('Ustatus1')">
-          <a href="{{ url('/home') }}">
+    <aside class="main-sidebar">
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" data-widget="tree">
+          <li class="@yield('Ustatus1')">
+            <a href="{{ url('/home') }}">
             <i class="fa fa-folder"></i> <span>Penyimpanan</span>
           </a>
-        </li>
-        
+          </li>
+
           <li class="@yield('Ustatus2')">
             <a href="{{ url('/log') }}">
               <i class="fa fa-history"></i> <span>Log</span>
@@ -90,82 +90,98 @@
             </a>
           </li>
           <li>
-            <li>
-              <a href="{{ route('user.logout') }}"
-              onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();"><i class="fa fa-arrow-left"></i>
-              <span>Logout</span>
-            </a>
+            <a data-target="#modal-keluar" data-toggle="modal">
+                <i class="fa fa-arrow-left"></i> <span>Logout</span>
+              </a>
+          </li>
+        </ul>
+      </section>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      @yield('content-header')
+
+      <!-- Main Content -->
+      @yield('content')
+    </div>
+
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+      <div class="pull-right hidden-xs"></div>
+      <strong>Build by <a href="https://adminlte.io">Admin-LTE</a>.</strong>
+    </footer>
+  </div>
+
+  <div class="modal modal-default fade" id="modal-keluar">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          Yakin Anda ingin keluar?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline logout-no pull-left" data-dismiss="modal">Tidak</button>
+          <a href="{{ route('user.logout') }}" onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();">
+              <button type="button" class="btn btn-outline logout-yes">Ya</button>
             <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
               {{ csrf_field() }}
             </form>
-            </li>
-          </li>
-      </ul>
-    </section>
-    <!-- /.sidebar -->
-  </aside>
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    @yield('content-header')
-
-    <!-- Main Content -->
-    @yield('content')
+          </a>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
   </div>
 
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs"></div>
-    <strong>Build by <a href="https://adminlte.io">Admin-LTE</a>.</strong>
-  </footer>
-</div>
+  <!-- jQuery 3 -->
+  <script src="{{asset('asset/bower_components/jquery/dist/jquery.min.js')}}"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="{{asset('asset/bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button);
 
-<!-- jQuery 3 -->
-<script src="{{asset('asset/bower_components/jquery/dist/jquery.min.js')}}"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="{{asset('asset/bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button);
-</script>
-<!-- Bootstrap 3.3.7 -->
-<script src="{{asset('asset/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-<!-- Morris.js charts -->
-<script src="{{asset('asset/bower_components/raphael/raphael.min.js')}}"></script>
-<script src="{{asset('asset/bower_components/morris.js/morris.min.js')}}"></script>
-<!-- Sparkline -->
-<script src="{{asset('asset/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
-<!-- jvectormap -->
-<script src="{{asset('asset/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
-<script src="{{asset('asset/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{asset('asset/bower_components/jquery-knob/dist/jquery.knob.min.js')}}"></script>
-<!-- daterangepicker -->
-<script src="{{asset('asset/bower_components/moment/min/moment.min.js')}}"></script>
-<script src="{{asset('asset/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-<!-- datepicker -->
-<script src="{{asset('asset/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
-<!-- Bootstrap WYSIHTML5 -->
-<script src="{{asset('asset/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
-<!-- Slimscroll -->
-<script src="{{asset('asset/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
-<!-- FastClick -->
-<script src="{{asset('asset/bower_components/fastclick/lib/fastclick.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('asset/dist/js/adminlte.min.js')}}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('asset/dist/js/pages/dashboard.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('asset/dist/js/demo.js')}}"></script>
-<!-- DataTables -->
-<script src="{{asset('asset/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('asset/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-<!-- fullCalendar -->
-<script src="{{asset('asset/bower_components/moment/moment.js')}}"></script>
-<script src="{{asset('asset/bower_components/fullcalendar/dist/fullcalendar.min.js')}}"></script>
-<script>
+  </script>
+  <!-- Bootstrap 3.3.7 -->
+  <script src="{{asset('asset/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+  <!-- Morris.js charts -->
+  <script src="{{asset('asset/bower_components/raphael/raphael.min.js')}}"></script>
+  <script src="{{asset('asset/bower_components/morris.js/morris.min.js')}}"></script>
+  <!-- Sparkline -->
+  <script src="{{asset('asset/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
+  <!-- jvectormap -->
+  <script src="{{asset('asset/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
+  <script src="{{asset('asset/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+  <!-- jQuery Knob Chart -->
+  <script src="{{asset('asset/bower_components/jquery-knob/dist/jquery.knob.min.js')}}"></script>
+  <!-- daterangepicker -->
+  <script src="{{asset('asset/bower_components/moment/min/moment.min.js')}}"></script>
+  <script src="{{asset('asset/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+  <!-- datepicker -->
+  <script src="{{asset('asset/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+  <!-- Bootstrap WYSIHTML5 -->
+  <script src="{{asset('asset/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
+  <!-- Slimscroll -->
+  <script src="{{asset('asset/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+  <!-- FastClick -->
+  <script src="{{asset('asset/bower_components/fastclick/lib/fastclick.js')}}"></script>
+  <!-- AdminLTE App -->
+  <script src="{{asset('asset/dist/js/adminlte.min.js')}}"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="{{asset('asset/dist/js/pages/dashboard.js')}}"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="{{asset('asset/dist/js/demo.js')}}"></script>
+  <!-- DataTables -->
+  <script src="{{asset('asset/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+  <script src="{{asset('asset/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+  <!-- fullCalendar -->
+  <script src="{{asset('asset/bower_components/moment/moment.js')}}"></script>
+  <script src="{{asset('asset/bower_components/fullcalendar/dist/fullcalendar.min.js')}}"></script>
+  <script>
     $(function () {
       $('#example1').DataTable()
       $('#example2').DataTable({
@@ -177,9 +193,10 @@
         'autoWidth'   : false
       })
     })
-</script>
-<script>
-  $(function () {
+
+  </script>
+  <script>
+    $(function () {
 
     /* ADDING EVENTS */
     var currColor = '#3c8dbc' //Red by default
@@ -218,9 +235,10 @@
       $('#new-event').val('')
     })
   })
-</script>
-<script>
-  $(function () {
+
+  </script>
+  <script>
+    $(function () {
 
     /* ADDING EVENTS */
     var currColor1 = '#3c8dbc' //Red by default
@@ -259,6 +277,10 @@
       $('#new-event').val('')
     })
   })
-</script>
+
+  </script>
 </body>
+
 </html>
+
+{{-- --}}

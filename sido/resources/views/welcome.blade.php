@@ -51,9 +51,9 @@
         <div class="button-content">
                 <div class=" btn-group-lg">
                     @if (Route::has('login')) @if (Auth::check())
-                    <button type="submit" data-target="{{ url('/home') }}" class=" btn btn-success yellow">Home</button> 
+                    <a href="{{ url('/home') }}"><button type="submit" class=" btn btn-success yellow">Home</button></a>
                     @else
-                    <a href="{{ url('/home') }}"><button type="submit" class=" btn btn-success yellow ">Home</button></a>
+                    <a href="{{ url('/home') }}"><button type="submit" class=" btn btn-success yellow ">Login</button></a>
                     <a href="{{ url('/register') }}"><button type="submit" class=" btn btn-success yellow">Register</button></a> @endif @endif
             </div>
         </div>
@@ -62,13 +62,13 @@
         <div class="img-bg">
             <div class=" row">
                 <div class=" col-md-4">
-                    <img src="{{asset('asset/dist/img/background.png')}}" alt="" class="bg">
+                    <img src="{{asset('asset/dist/img/SIDO1.png')}}" alt="" class="bg">
                 </div>
                 <div class=" col-md-4">
-                    <img src="{{asset('asset/dist/img/background.png')}}" alt="" class="bg">
+                    <img src="{{asset('asset/dist/img/SIDO2.png')}}" alt="" class="bg">
                 </div>
                 <div class=" col-md-4">
-                    <img src="{{asset('asset/dist/img/background.png')}}" alt="" class="bg">
+                    <img src="{{asset('asset/dist/img/SIDO1.png')}}" alt="" class="bg">
                 </div>
             </div>
         </div>

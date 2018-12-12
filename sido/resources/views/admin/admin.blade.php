@@ -43,9 +43,32 @@
                       <!-- Perulangan nanti terjadi disini -->
                       <div class="col-md-3">
                         <div class="box box-primary">
-                          <button type="button" class="btn btn-block btn-default btn-lg folder"><i class="fa fa-fw fa-folder"></i> Kegiatan 1</button>
+                          <div>
+                              <button type="button" class="btn btn-block btn-default btn-lg"><i class="fa fa-fw fa-folder"></i> Kegiatan 1</button>
+                          </div>
                         </div>
                       </div>
+                      <div class="col-md-3">
+                          <div class="box box-primary">
+                            <div>
+                                <button type="button" class="btn btn-block btn-default btn-lg"><i class="fa fa-fw fa-folder"></i> Kegiatan 1</button>
+                            </div>
+                          </div>
+                        </div>  
+                        <div class="col-md-3">
+                            <div class="box box-primary">
+                              <div>
+                                  <button type="button" class="btn btn-block btn-default btn-lg"><i class="fa fa-fw fa-folder"></i> Kegiatan 1</button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-3">
+                              <div class="box box-primary">
+                                <div>
+                                    <button type="button" class="btn btn-block btn-default btn-lg"><i class="fa fa-fw fa-folder"></i> Kegiatan 1</button>
+                                </div>
+                              </div>
+                            </div>
                       
                     </div>
                   </div>
@@ -163,6 +186,11 @@
             <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
           </div>
 
+          <label>Tambahkan File</label>
+          <div>
+            <input type="file">
+          </div>
+
         </div>
 
         <div class="box box-solid">
@@ -219,4 +247,8 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('Astatus1')
+    active
 @endsection

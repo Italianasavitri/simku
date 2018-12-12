@@ -88,7 +88,7 @@
     border-color: #666666;
 }
 
-/* button for login  */
+/* button  */
 
 .btn.btn-flat.logon {
     border-radius: 0;
@@ -109,6 +109,19 @@
     background-color: #dd4b39;
     border-color: #d73925;
     width: 150px;
+}
+
+.btn-outline.logout-yes {
+    border: 1px solid #caadad !important;
+    background: #e8232300 !important;
+    color: #fff !important;
+    background-color: #ec4242 !important;
+}
+.btn-outline.logout-no {
+    border: 1px solid #2dd066;
+    background: transparent;
+    color: #fff;
+    background-color: #2dd066;
 }
 
 /* login box */
@@ -159,7 +172,7 @@ hr.custom {
 
 .btn-success.yellow {
     background-color: #ffd920 !important;
-    border-color: #ff9100 !important;
+    border-color:transparent !important;
     border-radius: 30px;
     margin-right: 40px;
     margin-left: 40px;
@@ -189,9 +202,9 @@ hr.custom {
 }
 
 .btn-default.custom {
-    background-color: #af2e2e !important;
-    color: #575d58 !important;
-    border-color: #e0e0e0 !important;
+    background-color: #f5ad0d !important;
+    color: #ffffff !important;
+    border-color: #fbba2b !important;
 }
 
 /* Text Link */
@@ -224,7 +237,7 @@ img.custom {
     margin-top: 2%;
 }
 img.bg{
-    height: 280px;
+    height: 300px;
 }
 
 div.button-content{

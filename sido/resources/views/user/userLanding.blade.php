@@ -163,6 +163,11 @@
             <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
           </div>
 
+          <label>Tambahkan File</label>
+          <div>
+            <input type="file">
+          </div>
+
         </div>
 
         <div class="box box-solid">
@@ -209,16 +214,16 @@
             </div>
 
           </div>
-
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tutup</button>
+            <button type="button" class="btn btn-primary">Simpan</button>
+          </div>
         </div>
-
-<div class="modal-footer">
-        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tutup</button>
-        <button type="button" class="btn btn-primary">Simpan</button>
       </div>
     </div>
-  </div>
-</div>
+        </div>
+@endsection
+
 @section('Ustatus1')
 active
 @endsection
