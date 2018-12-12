@@ -157,6 +157,20 @@ hr.custom {
     color: #b70a00 !important;
 }
 
+.btn-success.yellow {
+    background-color: #ffd920 !important;
+    border-color: #ff9100 !important;
+    border-radius: 30px;
+    margin-right: 40px;
+    margin-left: 40px;
+    width: 300px;   
+    height: 40px;
+    font-size: 25px;
+    padding: 0 !important;
+    color: #000000 !important;
+}
+/* Form  */
+
 .form-control.input-sm {
     border-color: #ffffff !important;
     border-bottom-color: #000000 !important;
@@ -175,7 +189,46 @@ hr.custom {
 }
 
 .btn-default.custom {
-    background-color: #ffffff !important;
+    background-color: #af2e2e !important;
     color: #575d58 !important;
     border-color: #e0e0e0 !important;
+}
+
+/* Text Link */
+.btn-link.custom {
+    font-weight: 400;
+    color: #ffffff;
+    border-radius: 0;
+}
+
+.nav-top{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.custom-bg{
+    background-color: #61bc4a;
+}
+.img-bg{
+    position: fixed;
+    bottom: 0;
+    height: 300px;
+    width: 100%;
+    background-color: #6cd152;
+}
+
+img.custom {
+    vertical-align: middle;
+    margin-top: 2%;
+}
+img.bg{
+    height: 280px;
+}
+
+div.button-content{
+    text-align: center;
+    margin: 10%;
+    padding: 2%;
 }

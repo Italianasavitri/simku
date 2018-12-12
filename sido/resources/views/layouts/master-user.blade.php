@@ -69,17 +69,18 @@
     <section class="sidebar">
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="{{set_active('/home')}}">
+        <li class="@yield('Ustatus1')">
           <a href="{{ url('/home') }}">
             <i class="fa fa-folder"></i> <span>Penyimpanan</span>
           </a>
         </li>
-        <li class="{{ Request:: is('/log') ? 'active' : null }}">
+        
+          <li class="@yield('Ustatus2')">
             <a href="{{ url('/log') }}">
               <i class="fa fa-history"></i> <span>Log</span>
             </a>
           </li>
-          <li class="{{ Request:: is('/ubahPassword') ? 'active' : null }}">
+          <li class="@yield('Ustatus3')">
             <a href="{{ url('/ubahPassword') }}">
               <i class="fa fa-lock"></i> <span>Ubah Password</span>
             </a>

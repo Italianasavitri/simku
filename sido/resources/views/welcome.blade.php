@@ -1,101 +1,86 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="{{asset('asset/dist/img/ugm.png')}}" />
 
-        <title>SIDOKOM</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{asset('asset/dist/img/ugm.png')}}" />
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <title>SIDOKOM</title>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #006400;
-                color: #B8860B;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-            .full-height {
-                height: 100vh;
-            }
+    <link rel="shortcut icon" href="{{asset('asset/dist/img/ugm.png')}}" />
+    <title>SIDOKOM</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="{{asset('asset/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{asset('asset/bower_components/font-awesome/css/font-awesome.min.css')}}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="{{asset('asset/bower_components/Ionicons/css/ionicons.min.css')}}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{asset('asset/dist/css/AdminLTE.min.css')}}">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="{{asset('asset/dist/css/skins/_all-skins.min.css')}}">
+    <!-- Morris chart -->
+    <link rel="stylesheet" href="{{asset('asset/bower_components/morris.js/morris.css')}}">
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="{{asset('asset/bower_components/jvectormap/jquery-jvectormap.css')}}">
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="{{asset('asset/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="{{asset('asset/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="{{asset('asset/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+    <!-- Style -->
+    <link rel="stylesheet" href="{{asset('asset/dist/css/style.css') }}">
+</head>
+<body class="hold-transition skin-blue login-page layout-top-nav">
+    
+        <header class="main-header">
+        <nav class="navbar navbar-static-top logon">
+            <img src="{{asset('asset/dist/img/SIDOKOMSI.svg')}}" alt="    ">
+            </nav>
+        </header>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #B8860B;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
+        <div class="button-content">
+                <div class=" btn-group-lg">
+                    @if (Route::has('login')) @if (Auth::check())
+                    <button type="submit" data-target="{{ url('/home') }}" class=" btn btn-success yellow">Home</button> 
                     @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                   <b> SIDOKOM </b>
-                </div>
-                <div>
-                    <h3>Sistem Dokumentasi KOMSI</h3>
-                </div>
-                <div>
-                    Univeristas Gadjah Mada (UGM)
-                </div>
-
-                <!-- <div class="links">
-                    <a href="pesan">Pesan</a>
-                    <a href="about">About</a>
-                    <a href="coba1">Template</a>
-                    <a href="upload">Upload</a>
-                </div> -->
+                    <a href="{{ url('/home') }}"><button type="submit" class=" btn btn-success yellow ">Home</button></a>
+                    <a href="{{ url('/register') }}"><button type="submit" class=" btn btn-success yellow">Register</button></a> @endif @endif
             </div>
         </div>
-    </body>
+       
+
+        <div class="img-bg">
+            <div class=" row">
+                <div class=" col-md-4">
+                    <img src="{{asset('asset/dist/img/background.png')}}" alt="" class="bg">
+                </div>
+                <div class=" col-md-4">
+                    <img src="{{asset('asset/dist/img/background.png')}}" alt="" class="bg">
+                </div>
+                <div class=" col-md-4">
+                    <img src="{{asset('asset/dist/img/background.png')}}" alt="" class="bg">
+                </div>
+            </div>
+        </div>
+  
+</body>
+
 </html>
+{{-- @if (Route::has('login'))
+<div class="top-right links">
+    @if (Auth::check())
+    <a href="{{ url('/home') }}">Home</a> @else
+    <a href="{{ url('/login') }}">Login</a>
+    <a href="{{ url('/register') }}">Register</a> @endif
+</div>
+@endif --}}

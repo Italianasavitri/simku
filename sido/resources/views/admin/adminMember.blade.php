@@ -218,3 +218,6 @@
     {{ csrf_field() }}
     </form>
 @endsection
+@section('status')
+active
+@endsection

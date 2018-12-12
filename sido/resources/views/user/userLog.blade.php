@@ -59,3 +59,7 @@
     {{ csrf_field() }}
     </form>
 @endsection
+
+@section('Ustatus2')
+active
+@endsection

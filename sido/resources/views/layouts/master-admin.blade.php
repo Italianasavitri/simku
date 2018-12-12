@@ -70,21 +70,21 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="active">
-          <a href="{{ url('/admin') }}">
+          <a href="@yield('Astatus1')">
             <i class="fa fa-folder"></i> <span>Penyimpanan</span>
           </a>
         </li>
-        <li class="{{ Request::is('/admin/pengguna') ? 'active' : '' }}">
+        <li class="@yield('Astatus2')">
           <a href="{{ url('/admin/pengguna') }}">
             <i class="fa fa-users"></i> <span>Pengguna</span>
           </a>
         </li>
-        <li class="{{ Request::is('/admin/log') ? 'active' : null }}">
+        <li class="@yield('Astatus3')">
             <a href="{{ url('/admin/log') }}">
               <i class="fa fa-history"></i> <span>Log</span>
             </a>
           </li>
-          <li class="{{Request::is('/admin/ubahPassword') ? 'active' : null }}">
+          <li class="@yield('Astatus4')">
             <a href="{{ url('/admin/ubahPassword') }}">
               <i class="fa fa-lock"></i> <span>Ubah Password</span>
             </a>
