@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,29 +36,47 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
 
-  <header class="main-header">
-    <!-- Logo -->
-    <a href="index2.html" class="logo greener">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>K</b></span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>KOMSI</b></span>
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top greener">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+
+    <!-- ini adalah header -->
+    <header class="main-header">
+      <!-- Logo -->
+      <a href="index2.html" class="logo greener">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>K</b></span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>KOMSI</b></span>
       </a>
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- Account -->
-          <li>
-            <a>
-                <i class="fa fa-user"></i> {{ Auth::user()->name }}
+
+      <!-- Header Navbar: style can be found in header.less -->
+      <nav class="navbar navbar-static-top greener">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <!-- Account -->
+            <li>
+              <a>
+                  <i class="fa fa-user"></i> {{ Auth::user()->name }}
+              </a>
+            </li>
+          </ul>
+       </div>
+      </nav>
+    </header>
+
+    <aside class="main-sidebar">
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" data-widget="tree">
+          <li class="active">
+            <a href="{{ url('/admin') }}">
+              <i class="fa fa-folder"></i> <span>Penyimpanan</span>
             </a>
         </ul>
       </div>
@@ -85,38 +104,48 @@
             </a>
           </li>
           <li class="@yield('Astatus4')">
+            <a href="{{ url('/admin/pengguna') }}">
+              <i class="fa fa-users"></i> <span>Pengguna</span>
+            </a>
+          </li>
+          <li class="{{Request::is('/admin/ubahPassword') ? 'active' : null }}">
             <a href="{{ url('/admin/ubahPassword') }}">
               <i class="fa fa-lock"></i> <span>Ubah Password</span>
             </a>
           </li>
           <li>
-            <li>
-              @yield('logout')
-            </li>
+            <a href="{{ route('admin.logout') }}" 
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();"><i class="fa fa-arrow-left"></i>
+                  <span>Logout</span>
+            </a>
+            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+              {{ csrf_field() }}
+            </form>
           </li>
-      </ul>
-    </section>
+        </ul>
+      </section>
     <!-- /.sidebar -->
-  </aside>
+    </aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    @yield('content-header')
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
 
-    <!-- Main Content -->
-    @yield('content')
+      <!-- Content Header (Page header) -->
+      @yield('content-header')
 
+      <!-- Main Content -->
+      @yield('content')
+
+    </div>
+
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+      <div class="pull-right hidden-xs"></div>
+      <strong>Build by <a href="https://adminlte.io">Admin-LTE</a>.</strong>
+    </footer>
 
   </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-    </div>
-    <strong>Build by <a href="https://adminlte.io">Admin-LTE</a>.</strong>
-  </footer>
-</div>
-<!-- ./wrapper -->
 
 <!-- jQuery 3 -->
 <script src="{{asset('asset/bower_components/jquery/dist/jquery.min.js')}}"></script>
@@ -170,6 +199,88 @@
         'autoWidth'   : false
       })
     })
-  </script>
+</script>
+<script>
+  $(function () {
+
+    /* ADDING EVENTS */
+    var currColor = '#3c8dbc' //Red by default
+    //Color chooser button
+    var colorChooser = $('#color-chooser-btn')
+    $('#color-chooser > li > a').click(function (e) {
+      e.preventDefault()
+      //Save color
+      currColor = $(this).css('color')
+      //Add color effect to button
+      $('#add-new-event').css({ 'background-color': currColor, 'border-color': currColor })
+    })
+
+    $('#add-new-event').click(function (e) {
+      e.preventDefault()
+      //Get value and make sure it is not null
+      var val = $('#new-event').val()
+      if (val.length == 0) {
+        return
+      }
+
+      //Create events
+      var event = $('<div />')
+      event.css({
+        'background-color': currColor,
+        'border-color'    : currColor,
+        'color'           : '#fff'
+      }).addClass('external-event')
+      event.html(val)
+      $('#external-events').prepend(event)
+
+      //Add draggable funtionality
+      init_events(event)
+
+      //Remove event from text input
+      $('#new-event').val('')
+    })
+  })
+</script>
+<script>
+  $(function () {
+
+    /* ADDING EVENTS */
+    var currColor1 = '#3c8dbc' //Red by default
+    //Color chooser button
+    var colorChooser1 = $('#color-chooser1-btn')
+    $('#color-chooser1 > li > a').click(function (e) {
+      e.preventDefault()
+      //Save color
+      currColor1 = $(this).css('color')
+      //Add color effect to button
+      $('#add-new-event1').css({ 'background-color': currColor1, 'border-color': currColor1 })
+    })
+    
+    $('#add-new-event1').click(function (e) {
+      e.preventDefault()
+      //Get value and make sure it is not null
+      var val = $('#new-event1').val()
+      if (val.length == 0) {
+        return
+      }
+
+      //Create events
+      var event = $('<div />')
+      event.css({
+        'background-color': currColor1,
+        'border-color'    : currColor1,
+        'color'           : '#fff'
+      }).addClass('external-event')
+      event.html(val)
+      $('#external-events1').prepend(event)
+
+      //Add draggable funtionality
+      init_events(event)
+
+      //Remove event from text input
+      $('#new-event').val('')
+    })
+  })
+</script>
 </body>
 </html>

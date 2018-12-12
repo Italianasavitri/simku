@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,6 +36,7 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -46,6 +48,7 @@
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>KOMSI</b></span>
     </a>
+
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top greener">
       <!-- Sidebar toggle button-->
@@ -57,14 +60,15 @@
           <!-- Account -->
           <li>
             <a>
-                <i class="fa fa-user"></i> {{ Auth::user()->name }}
+              <i class="fa fa-user"></i> {{ Auth::user()->name }}
             </a>
+          </li>
         </ul>
       </div>
     </nav>
   </header>
 
-<aside class="main-sidebar">
+  <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -87,7 +91,14 @@
           </li>
           <li>
             <li>
-              @yield('logout')
+              <a href="{{ route('user.logout') }}"
+              onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();"><i class="fa fa-arrow-left"></i>
+              <span>Logout</span>
+            </a>
+            <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
+              {{ csrf_field() }}
+            </form>
             </li>
           </li>
       </ul>
@@ -102,17 +113,14 @@
 
     <!-- Main Content -->
     @yield('content')
-
-
   </div>
+
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-    </div>
+    <div class="pull-right hidden-xs"></div>
     <strong>Build by <a href="https://adminlte.io">Admin-LTE</a>.</strong>
   </footer>
 </div>
-<!-- ./wrapper -->
 
 <!-- jQuery 3 -->
 <script src="{{asset('asset/bower_components/jquery/dist/jquery.min.js')}}"></script>
@@ -154,6 +162,9 @@
 <!-- DataTables -->
 <script src="{{asset('asset/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('asset/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<!-- fullCalendar -->
+<script src="{{asset('asset/bower_components/moment/moment.js')}}"></script>
+<script src="{{asset('asset/bower_components/fullcalendar/dist/fullcalendar.min.js')}}"></script>
 <script>
     $(function () {
       $('#example1').DataTable()
@@ -166,6 +177,88 @@
         'autoWidth'   : false
       })
     })
-  </script>
+</script>
+<script>
+  $(function () {
+
+    /* ADDING EVENTS */
+    var currColor = '#3c8dbc' //Red by default
+    //Color chooser button
+    var colorChooser = $('#color-chooser-btn')
+    $('#color-chooser > li > a').click(function (e) {
+      e.preventDefault()
+      //Save color
+      currColor = $(this).css('color')
+      //Add color effect to button
+      $('#add-new-event').css({ 'background-color': currColor, 'border-color': currColor })
+    })
+
+    $('#add-new-event').click(function (e) {
+      e.preventDefault()
+      //Get value and make sure it is not null
+      var val = $('#new-event').val()
+      if (val.length == 0) {
+        return
+      }
+
+      //Create events
+      var event = $('<div />')
+      event.css({
+        'background-color': currColor,
+        'border-color'    : currColor,
+        'color'           : '#fff'
+      }).addClass('external-event')
+      event.html(val)
+      $('#external-events').prepend(event)
+
+      //Add draggable funtionality
+      init_events(event)
+
+      //Remove event from text input
+      $('#new-event').val('')
+    })
+  })
+</script>
+<script>
+  $(function () {
+
+    /* ADDING EVENTS */
+    var currColor1 = '#3c8dbc' //Red by default
+    //Color chooser button
+    var colorChooser1 = $('#color-chooser1-btn')
+    $('#color-chooser1 > li > a').click(function (e) {
+      e.preventDefault()
+      //Save color
+      currColor1 = $(this).css('color')
+      //Add color effect to button
+      $('#add-new-event1').css({ 'background-color': currColor1, 'border-color': currColor1 })
+    })
+    
+    $('#add-new-event1').click(function (e) {
+      e.preventDefault()
+      //Get value and make sure it is not null
+      var val = $('#new-event1').val()
+      if (val.length == 0) {
+        return
+      }
+
+      //Create events
+      var event = $('<div />')
+      event.css({
+        'background-color': currColor1,
+        'border-color'    : currColor1,
+        'color'           : '#fff'
+      }).addClass('external-event')
+      event.html(val)
+      $('#external-events1').prepend(event)
+
+      //Add draggable funtionality
+      init_events(event)
+
+      //Remove event from text input
+      $('#new-event').val('')
+    })
+  })
+</script>
 </body>
 </html>
